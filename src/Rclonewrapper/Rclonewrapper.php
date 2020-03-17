@@ -125,8 +125,6 @@ class Rclonewrapper
      * md5sum of remote:path.
      *
      * @param string $path
-     *
-     * @return array
      */
     public function md5sum($path)
     {
@@ -163,8 +161,6 @@ class Rclonewrapper
      * sha1sum of remote:path.
      *
      * @param string $path
-     *
-     * @return array
      */
     public function sha1sum($path)
     {
@@ -202,7 +198,6 @@ class Rclonewrapper
      *
      * @param string $path
      *
-     * @return array
      */
     public function ls($path)
     {
@@ -226,7 +221,6 @@ class Rclonewrapper
 
             return $list;
         }
-
         return false;
     }
 
@@ -234,8 +228,6 @@ class Rclonewrapper
      * lsl of remote:path.
      *
      * @param string $path
-     *
-     * @return array
      */
     public function lsl($path)
     {
@@ -267,8 +259,6 @@ class Rclonewrapper
      * lsd of remote:path.
      *
      * @param string $path
-     *
-     * @return array
      */
     public function lsd($path)
     {
@@ -287,6 +277,22 @@ class Rclonewrapper
             }
 
             return $list;
+        }
+
+        return false;
+    }
+
+    /**
+     * Generate or retrieve public link to file/folder
+     *
+     * @param string $path
+     */
+    public function link($path)
+    {
+        $link = $this->execute('link '.$this->remote.$path);
+
+        if (isset($link)) {
+            return $link[count($link) - 1];
         }
 
         return false;
@@ -332,8 +338,6 @@ class Rclonewrapper
      * Prints the total size and number of objects.
      *
      * @param string $path
-     *
-     * @return array
      */
     public function size($path)
     {
@@ -391,8 +395,6 @@ class Rclonewrapper
 
     /**
      * @param string $command
-     *
-     * @throws RuntimeException
      *
      * @return array
      */
