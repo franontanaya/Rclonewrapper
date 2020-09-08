@@ -8,7 +8,7 @@
 		{
             "name": "Philip Skuza",
             "email": "philip.skuza@gmail.com"
-        },
+        }
     ],
     "require": {
         "php": ">=5.4.0",
