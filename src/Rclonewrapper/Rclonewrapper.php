@@ -289,7 +289,7 @@ class Rclonewrapper
      */
     public function link($path)
     {
-        $link = $this->execute('link '.$this->remote.$path);
+        $link = $this->execute('link "'.$this->remote.$path.'"');
 
         if (isset($link)) {
             return $link[0];
