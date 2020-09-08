@@ -292,7 +292,7 @@ class Rclonewrapper
         $link = $this->execute('link '.$this->remote.$path);
 
         if (isset($link)) {
-            return $link[count($link) - 1];
+            return $link[0];
         }
 
         return false;
